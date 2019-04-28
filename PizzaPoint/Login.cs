@@ -13,8 +13,8 @@ namespace PizzaPoint
             Thread t = new Thread(new ThreadStart(StartForm));
             t.Start();
             Thread.Sleep(300);
-            t.Abort();
             InitializeComponent();
+            t.Abort();
         }
 
         public void StartForm()

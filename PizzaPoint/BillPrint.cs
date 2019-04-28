@@ -25,6 +25,7 @@ namespace PizzaPoint
 
         private void BillPrint_Load(object sender, EventArgs e)
         {
+
             rptOrders1.SetDataSource(_bill);
             rptOrders1.SetParameterValue("pBillid", _orders.Billid);
             rptOrders1.SetParameterValue("pOrderID", _orders.OrderID);
@@ -40,5 +41,7 @@ namespace PizzaPoint
             crystalReportViewer.ReportSource = rptOrders1;
             crystalReportViewer.Refresh(); 
         }
+
+       
     }
 }
