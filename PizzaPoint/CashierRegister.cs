@@ -15,6 +15,7 @@ namespace PizzaPoint
 {
     public partial class CashierRegister : Form
     {
+
         // For Resizing Of the Form
         private int _lastFormSize;
 
@@ -72,11 +73,17 @@ namespace PizzaPoint
             this.dgv1.RowHeadersDefaultCellStyle.BackColor = Color.Black;
 
             //This Part of Code is for the styling of the Grid Rows
-            dgv1.RowsDefaultCellStyle.Font = new Font("Arial", 12F, FontStyle.Regular);
+            dgv1.RowsDefaultCellStyle.Font = new Font("Arial", 15F, FontStyle.Regular);
             dgv1.RowsDefaultCellStyle.ForeColor = Color.White;
             dgv1.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
             dgv1.RowsDefaultCellStyle.BackColor = Color.Black;
             dgv1.AlternatingRowsDefaultCellStyle.BackColor = Color.Maroon;
+            
+            //this Line of Code made the dgv1 Text Middle Center
+            dgv1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            
+            //this line of code is applying padding to a specific Column of dgv1 which is Product Column
+            dgv1.Columns[2].DefaultCellStyle.Padding = new Padding(2, 2, 2,2);
 
         }
 
@@ -240,6 +247,7 @@ namespace PizzaPoint
         {
             fillGrid();
             dgv_CashierRegister();
+            listviewDesign();
         }
 
         private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -261,7 +269,7 @@ namespace PizzaPoint
             product.Show();
         }
 
-        private void btnAdmin_Click(object sender, EventArgs e)
+        public void btnAdmin_Click(object sender, EventArgs e)
         {
             Administrator admin = new Administrator();
             admin.Show();
@@ -276,7 +284,19 @@ namespace PizzaPoint
 
         private void btnEnterData_Click(object sender, EventArgs e)
         {
+            /*for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                if (listView1.Items[i].Index % 2 == 0)
+                {
+                    listView1.Items[i].BackColor = Color.Black;
+                }
+                else
+                {
+                    listView1.Items[i].BackColor = Color.Maroon;
+                }
+            }*/
 
+           
             try
             {
                 int a; double b;
@@ -325,7 +345,12 @@ namespace PizzaPoint
                 }
 
             }
-           
+
+            foreach (ListViewItem item in listView1.Items)
+            {
+                item.BackColor = item.Index % 2 == 0 ? Color.Maroon : Color.Black;
+            }
+
 
         }
 
@@ -376,7 +401,12 @@ namespace PizzaPoint
             {
 
             }
-            
+
+            foreach (ListViewItem item in listView1.Items)
+            {
+                item.BackColor = item.Index % 2 == 0 ? Color.Maroon : Color.Black;
+            }
+
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -522,6 +552,43 @@ namespace PizzaPoint
         {
             Inventory inventory = new Inventory();
             inventory.Show();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        public void listviewDesign()
+        {
+            listView1.BackColor = Color.Black;
+            listView1.ForeColor = Color.White;
+        }
+
+        private void listView1_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+           // e.Graphics.FillRectangle(Brushes.Maroon, e.Bounds);
+           //e.DrawText();
+        }
+
+        private void listView1_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+            //e.DrawDefault = true;
+        }
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+               
+        }
+
+        private void listView1_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CashierRegister_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

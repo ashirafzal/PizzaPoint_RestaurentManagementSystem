@@ -24,7 +24,7 @@ namespace PizzaPoint
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+           
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -54,15 +54,24 @@ namespace PizzaPoint
                 {
                     SqlDataAdapter adapter2 = new SqlDataAdapter("SELECT empLoginID,empLoginPass from Employee where empLoginID = '" + a + "' and empLoginPass = '" + txtPass.Text + "'", con);
                     adapter2.Fill(table2);
-                    MessageBox.Show("Welcome Employee");
-                    CashierRegister cr = new CashierRegister();
-                    this.Hide();
-                    cr.Show();
+
+                    if (table2.Rows.Count > 0)
+                    {
+                        MessageBox.Show("Welcome Employee");
+                        CashierRegister cr = new CashierRegister();
+                        this.Hide();
+                        cr.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Username or Password");
+                    }
+                   
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Invalid Username or Password");
+                MessageBox.Show("Please Enter Credentials for Successful Login");
             }
         }
 
@@ -72,6 +81,11 @@ namespace PizzaPoint
         }
 
         private void btnClose_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }

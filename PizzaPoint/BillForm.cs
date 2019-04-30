@@ -116,7 +116,8 @@ namespace PizzaPoint
                         {
                             if (db.State == ConnectionState.Closed)
                                 db.Open();
-                            string query = "select CustID,CustName,OrderDate,OrderID,OrderTime,ProductName,ProductPrice,ProductQuantity,TotalAmount,Totalqty from Bill where Ordertime = '"+ ordertime +"' and orderDate = '" + orderdate +"' ";
+                            string query = "select top 1 CustID,CustName,OrderDate,OrderID,OrderTime,ProductName,ProductPrice,ProductQuantity,TotalAmount,Totalqty from Bill order by CustID DESC ";
+                            //string query = "select CustID,CustName,OrderDate,OrderID,OrderTime,ProductName,ProductPrice,ProductQuantity,TotalAmount,Totalqty from Bill where Ordertime = '"+ ordertime +"' and orderDate = '" + orderdate +"' ";
                             List<BillDetails> list = db.Query<BillDetails>(query, commandType: CommandType.Text).ToList();
                             //OrderID  = '" + orderID + "' //
                             using (BillPrint frm = new BillPrint(obj, list))

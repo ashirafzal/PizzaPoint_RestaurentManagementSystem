@@ -80,7 +80,7 @@ namespace PizzaPoint
             this.dgv1.RowHeadersDefaultCellStyle.BackColor = Color.Black;
 
             //This Part of Code is for the styling of the Grid Rows
-            dgv1.RowsDefaultCellStyle.Font = new Font("Arial", 8F, FontStyle.Regular);
+            dgv1.RowsDefaultCellStyle.Font = new Font("Arial", 12F, FontStyle.Regular);
             dgv1.RowsDefaultCellStyle.ForeColor = Color.White;
             dgv1.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
             dgv1.RowsDefaultCellStyle.BackColor = Color.Black;
@@ -89,6 +89,11 @@ namespace PizzaPoint
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

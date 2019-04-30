@@ -18,14 +18,19 @@ namespace PizzaPoint
         public BillPrint(OrdersDetails orders, List<BillDetails> bill)
         {
             InitializeComponent();
-
             _orders = orders;
             _bill = bill;
         }
 
         private void BillPrint_Load(object sender, EventArgs e)
         {
+            report();
+        }
 
+        public void report()
+        {
+
+            List<string> list = new List<string>();
             rptOrders1.SetDataSource(_bill);
             rptOrders1.SetParameterValue("pBillid", _orders.Billid);
             rptOrders1.SetParameterValue("pOrderID", _orders.OrderID);
@@ -39,9 +44,7 @@ namespace PizzaPoint
             rptOrders1.SetParameterValue("pTotalQty", Convert.ToString(_orders.Totalqty));
             rptOrders1.SetParameterValue("pTotalAmount", Convert.ToString(_orders.TotalAmount));
             crystalReportViewer.ReportSource = rptOrders1;
-            crystalReportViewer.Refresh(); 
+            crystalReportViewer.Refresh();
         }
-
-       
     }
 }

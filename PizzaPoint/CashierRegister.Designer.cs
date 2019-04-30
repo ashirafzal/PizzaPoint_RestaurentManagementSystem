@@ -479,12 +479,19 @@
             this.columnHeader2,
             this.columnHeader3});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.ForeColor = System.Drawing.Color.White;
             this.listView1.Location = new System.Drawing.Point(3, 220);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(466, 362);
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listView1_DrawColumnHeader);
+            this.listView1.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listView1_DrawItem);
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
+            this.listView1.MouseLeave += new System.EventHandler(this.listView1_MouseLeave);
             // 
             // columnHeader1
             // 
@@ -494,11 +501,13 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Item Quantity";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 124;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Item Price";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 168;
             // 
             // tableLayoutPanel10
@@ -977,8 +986,16 @@
             this.dgv1.GridColor = System.Drawing.Color.Black;
             this.dgv1.Location = new System.Drawing.Point(3, 3);
             this.dgv1.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
+            this.dgv1.MultiSelect = false;
             this.dgv1.Name = "dgv1";
+            this.dgv1.ReadOnly = true;
+            this.dgv1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgv1.RowHeadersVisible = false;
+            this.dgv1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgv1.ShowCellErrors = false;
+            this.dgv1.ShowCellToolTips = false;
+            this.dgv1.ShowEditingIcon = false;
+            this.dgv1.ShowRowErrors = false;
             this.dgv1.Size = new System.Drawing.Size(1040, 622);
             this.dgv1.TabIndex = 0;
             this.dgv1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellContentClick);
@@ -997,6 +1014,7 @@
             this.Name = "CashierRegister";
             this.Text = "CashierRegister";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CashierRegister_FormClosing);
             this.Load += new System.EventHandler(this.CashierRegister_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

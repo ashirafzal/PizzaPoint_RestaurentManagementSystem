@@ -77,6 +77,10 @@
             // 
             // dgv1
             // 
+            this.dgv1.AllowUserToAddRows = false;
+            this.dgv1.AllowUserToDeleteRows = false;
+            this.dgv1.AllowUserToResizeColumns = false;
+            this.dgv1.AllowUserToResizeRows = false;
             this.dgv1.AutoGenerateColumns = false;
             this.dgv1.BackgroundColor = System.Drawing.Color.Black;
             this.dgv1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -96,7 +100,9 @@
             this.dgv1.GridColor = System.Drawing.Color.Black;
             this.dgv1.Location = new System.Drawing.Point(41, 12);
             this.dgv1.Name = "dgv1";
+            this.dgv1.ReadOnly = true;
             this.dgv1.RowHeadersVisible = false;
+            this.dgv1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgv1.Size = new System.Drawing.Size(802, 262);
             this.dgv1.TabIndex = 3;
