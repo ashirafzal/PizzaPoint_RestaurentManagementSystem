@@ -328,7 +328,7 @@
             this.empNum.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.empNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empNum.Location = new System.Drawing.Point(251, 0);
             this.empNum.Margin = new System.Windows.Forms.Padding(0);
             this.empNum.Multiline = true;
@@ -341,7 +341,7 @@
             this.empAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.empAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empAddress.Location = new System.Drawing.Point(251, 50);
             this.empAddress.Margin = new System.Windows.Forms.Padding(0);
             this.empAddress.Multiline = true;
@@ -354,7 +354,7 @@
             this.empEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.empEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empEmail.Location = new System.Drawing.Point(251, 100);
             this.empEmail.Margin = new System.Windows.Forms.Padding(0);
             this.empEmail.Multiline = true;
@@ -367,7 +367,7 @@
             this.empIdentity.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.empIdentity.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empIdentity.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empIdentity.Location = new System.Drawing.Point(251, 150);
             this.empIdentity.Margin = new System.Windows.Forms.Padding(0);
             this.empIdentity.Multiline = true;
@@ -380,7 +380,7 @@
             this.empDegree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.empDegree.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empDegree.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empDegree.Location = new System.Drawing.Point(251, 200);
             this.empDegree.Margin = new System.Windows.Forms.Padding(0);
             this.empDegree.Multiline = true;
@@ -502,7 +502,7 @@
             this.empName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.empName.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empName.Location = new System.Drawing.Point(243, 50);
             this.empName.Margin = new System.Windows.Forms.Padding(0);
             this.empName.Multiline = true;
@@ -515,7 +515,7 @@
             this.empLoginID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.empLoginID.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empLoginID.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empLoginID.Location = new System.Drawing.Point(243, 100);
             this.empLoginID.Margin = new System.Windows.Forms.Padding(0);
             this.empLoginID.Multiline = true;
@@ -528,7 +528,7 @@
             this.empPass.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.empPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empPass.Location = new System.Drawing.Point(243, 150);
             this.empPass.Margin = new System.Windows.Forms.Padding(0);
             this.empPass.Multiline = true;
@@ -542,7 +542,7 @@
             this.empPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.empPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empPosition.Location = new System.Drawing.Point(243, 200);
             this.empPosition.Margin = new System.Windows.Forms.Padding(0);
             this.empPosition.Multiline = true;
@@ -555,7 +555,7 @@
             this.empEducation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.empEducation.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empEducation.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empEducation.Location = new System.Drawing.Point(243, 250);
             this.empEducation.Margin = new System.Windows.Forms.Padding(0);
             this.empEducation.Multiline = true;
@@ -767,7 +767,7 @@
             // AdminPass
             // 
             this.AdminPass.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AdminPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdminPass.Location = new System.Drawing.Point(337, 100);
             this.AdminPass.Margin = new System.Windows.Forms.Padding(0);
             this.AdminPass.Multiline = true;
@@ -794,7 +794,7 @@
             // AdminLoginID
             // 
             this.AdminLoginID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AdminLoginID.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminLoginID.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdminLoginID.Location = new System.Drawing.Point(337, 50);
             this.AdminLoginID.Margin = new System.Windows.Forms.Padding(0);
             this.AdminLoginID.Multiline = true;
@@ -806,7 +806,7 @@
             // AdminName
             // 
             this.AdminName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AdminName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdminName.Location = new System.Drawing.Point(337, 0);
             this.AdminName.Margin = new System.Windows.Forms.Padding(0);
             this.AdminName.Multiline = true;
@@ -817,7 +817,7 @@
             // AdminEducation
             // 
             this.AdminEducation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AdminEducation.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminEducation.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdminEducation.Location = new System.Drawing.Point(337, 200);
             this.AdminEducation.Margin = new System.Windows.Forms.Padding(0);
             this.AdminEducation.Multiline = true;
@@ -828,7 +828,7 @@
             // AdminPost
             // 
             this.AdminPost.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AdminPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdminPost.Location = new System.Drawing.Point(337, 150);
             this.AdminPost.Margin = new System.Windows.Forms.Padding(0);
             this.AdminPost.Multiline = true;
@@ -906,6 +906,7 @@
             this.Name = "Administrator";
             this.Text = "Administrator";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Administrator_FormClosed);
             this.Load += new System.EventHandler(this.Administrator_Load);
             this.AdminTab.ResumeLayout(false);
             this.Emp.ResumeLayout(false);

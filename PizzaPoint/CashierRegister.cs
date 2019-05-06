@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dapper;
-using System.Configuration;
 
 namespace PizzaPoint
 {
@@ -30,7 +24,7 @@ namespace PizzaPoint
 
         //Declaring The Generic Lists for the Items Collection
 
-        List<int> productquantity = new List<int>();
+        List<double> productquantity = new List<double>();
         List<double> productPrice = new List<double>();
         List<string> productname = new List<string>();
 
@@ -73,7 +67,7 @@ namespace PizzaPoint
             this.dgv1.RowHeadersDefaultCellStyle.BackColor = Color.Black;
 
             //This Part of Code is for the styling of the Grid Rows
-            dgv1.RowsDefaultCellStyle.Font = new Font("Arial", 15F, FontStyle.Regular);
+            dgv1.RowsDefaultCellStyle.Font = new Font("Arial", 12F, FontStyle.Regular);
             dgv1.RowsDefaultCellStyle.ForeColor = Color.White;
             dgv1.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
             dgv1.RowsDefaultCellStyle.BackColor = Color.Black;
@@ -85,6 +79,9 @@ namespace PizzaPoint
             //this line of code is applying padding to a specific Column of dgv1 which is Product Column
             dgv1.Columns[2].DefaultCellStyle.Padding = new Padding(2, 2, 2,2);
 
+
+            //
+            
         }
 
 
@@ -112,6 +109,7 @@ namespace PizzaPoint
         {
 
             InitializeComponent();
+            fillGrid();
             this.MinimumSize = new Size(1300, 850);
             this.Resize += new EventHandler(Form2_Resize);
             _lastFormSize = GetFormArea(this.Size);
@@ -245,7 +243,6 @@ namespace PizzaPoint
 
         private void CashierRegister_Load(object sender, EventArgs e)
         {
-            fillGrid();
             dgv_CashierRegister();
             listviewDesign();
         }
@@ -272,6 +269,7 @@ namespace PizzaPoint
         public void btnAdmin_Click(object sender, EventArgs e)
         {
             Administrator admin = new Administrator();
+            this.Hide();
             admin.Show();
         }
 
@@ -284,22 +282,9 @@ namespace PizzaPoint
 
         private void btnEnterData_Click(object sender, EventArgs e)
         {
-            /*for (int i = 0; i < listView1.Items.Count; i++)
-            {
-                if (listView1.Items[i].Index % 2 == 0)
-                {
-                    listView1.Items[i].BackColor = Color.Black;
-                }
-                else
-                {
-                    listView1.Items[i].BackColor = Color.Maroon;
-                }
-            }*/
-
-           
             try
             {
-                int a; double b;
+                double a; double b;
                 a = Convert.ToInt16(txtQuantity.Text.ToString());
                 b = Convert.ToDouble(txtItemPrice.Text);
 
@@ -307,19 +292,35 @@ namespace PizzaPoint
                 productquantity.Add(a);
                 productPrice.Add(b);
 
+                double c = a * b;
+
                 if (string.IsNullOrEmpty(comboBox1.Text) || string.IsNullOrEmpty(txtQuantity.Text) || string.IsNullOrEmpty(txtItemPrice.Text))
  
                 return;
                 ListViewItem item = new ListViewItem(comboBox1.Text);
                 item.SubItems.Add(txtQuantity.Text);
-                item.SubItems.Add(txtItemPrice.Text);
+                item.SubItems.Add(c.ToString());
+                //item.SubItems.Add(txtItemPrice.Text);
                 listView1.Items.Add(item);
-                //comboBox1.Items.Clear();
-                //comboBox1.Focus();
 
-                qtyResult.Text = (productquantity.Sum(x => x)).ToString();
-                MainTotalResult.Text = (productPrice.Sum(x => x)).ToString();
-            }
+                decimal gQty = 0;
+                foreach (ListViewItem lstItem in listView1.Items)
+                {
+                    gQty += decimal.Parse(lstItem.SubItems[1].Text);
+                }
+
+                decimal gtotal = 0;
+                foreach (ListViewItem lstItem in listView1.Items)
+                {
+                    gtotal += decimal.Parse(lstItem.SubItems[2].Text);
+                }
+
+                qtyResult.Text = Convert.ToString(gQty);
+                MainTotalResult.Text = Convert.ToString(gtotal);
+
+                //qtyResult.Text = (productquantity.Sum(x => x)).ToString();
+                //MainTotalResult.Text = (productPrice.Sum(x => x)).ToString();
+        }
             catch (Exception)
             {
 
@@ -417,6 +418,8 @@ namespace PizzaPoint
             listView1.Items.Clear();
             MainTotalResult.Text = "0";
             qtyResult.Text = "0";
+            productquantity.Clear();
+            productPrice.Clear();
         }
 
         private void btnBill_Click(object sender, EventArgs e)

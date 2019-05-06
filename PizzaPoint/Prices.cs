@@ -64,10 +64,13 @@ namespace PizzaPoint
             //This Part of Code is for the styling of the Grid Columns
             dgv1.ColumnHeadersDefaultCellStyle.BackColor = Color.Maroon;
             dgv1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgv1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10F, FontStyle.Bold);
+            dgv1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10.5F, FontStyle.Regular);
 
             //This Part of Code is for the styling of the Visaul Style
             dgv1.EnableHeadersVisualStyles = false;
+            dgv1.DefaultCellStyle.Padding = new Padding(8, 1, 0, 1);
+            dgv1.RowTemplate.Height = 30;
+
 
             // This Part of Code is for the styling of the Grid Border
             this.dgv1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -80,7 +83,7 @@ namespace PizzaPoint
             this.dgv1.RowHeadersDefaultCellStyle.BackColor = Color.Black;
 
             //This Part of Code is for the styling of the Grid Rows
-            dgv1.RowsDefaultCellStyle.Font = new Font("Arial", 12F, FontStyle.Regular);
+            dgv1.RowsDefaultCellStyle.Font = new Font("Arial", 10.2F, FontStyle.Regular);
             dgv1.RowsDefaultCellStyle.ForeColor = Color.White;
             dgv1.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
             dgv1.RowsDefaultCellStyle.BackColor = Color.Black;
@@ -94,6 +97,17 @@ namespace PizzaPoint
         }
 
         private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Prices_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CashierRegister cr = new CashierRegister();
+            cr.Show();
+        }
+
+        private void Prices_Load(object sender, EventArgs e)
         {
 
         }

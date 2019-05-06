@@ -251,6 +251,7 @@
     </None>
     <None Include="Properties\DataSources\Bill.datasource" />
     <None Include="Properties\DataSources\BillDetails.datasource" />
+    <None Include="Properties\DataSources\EmployeeRecord.datasource" />
     <None Include="Properties\DataSources\Inventory.datasource" />
     <None Include="Properties\DataSources\Order.datasource" />
     <None Include="Properties\DataSources\Orders.datasource" />

@@ -53,7 +53,7 @@
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoad.ForeColor = System.Drawing.Color.White;
-            this.btnLoad.Location = new System.Drawing.Point(531, 298);
+            this.btnLoad.Location = new System.Drawing.Point(817, 295);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(145, 40);
             this.btnLoad.TabIndex = 0;
@@ -67,7 +67,7 @@
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(698, 298);
+            this.btnPrint.Location = new System.Drawing.Point(984, 295);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(145, 40);
             this.btnPrint.TabIndex = 2;
@@ -83,7 +83,6 @@
             this.dgv1.AllowUserToResizeRows = false;
             this.dgv1.AutoGenerateColumns = false;
             this.dgv1.BackgroundColor = System.Drawing.Color.Black;
-            this.dgv1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.orderIDDataGridViewTextBoxColumn,
@@ -98,13 +97,13 @@
             this.totalAmountDataGridViewTextBoxColumn});
             this.dgv1.DataSource = this.ordersDetailsBindingSource;
             this.dgv1.GridColor = System.Drawing.Color.Black;
-            this.dgv1.Location = new System.Drawing.Point(41, 12);
+            this.dgv1.Location = new System.Drawing.Point(28, 12);
             this.dgv1.Name = "dgv1";
             this.dgv1.ReadOnly = true;
             this.dgv1.RowHeadersVisible = false;
             this.dgv1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgv1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgv1.Size = new System.Drawing.Size(802, 262);
+            this.dgv1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgv1.Size = new System.Drawing.Size(1101, 262);
             this.dgv1.TabIndex = 3;
             // 
             // orderIDDataGridViewTextBoxColumn
@@ -112,60 +111,76 @@
             this.orderIDDataGridViewTextBoxColumn.DataPropertyName = "OrderID";
             this.orderIDDataGridViewTextBoxColumn.HeaderText = "OrderID";
             this.orderIDDataGridViewTextBoxColumn.Name = "orderIDDataGridViewTextBoxColumn";
+            this.orderIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // custIDDataGridViewTextBoxColumn
             // 
             this.custIDDataGridViewTextBoxColumn.DataPropertyName = "CustID";
             this.custIDDataGridViewTextBoxColumn.HeaderText = "CustID";
             this.custIDDataGridViewTextBoxColumn.Name = "custIDDataGridViewTextBoxColumn";
+            this.custIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // custNameDataGridViewTextBoxColumn
             // 
             this.custNameDataGridViewTextBoxColumn.DataPropertyName = "CustName";
             this.custNameDataGridViewTextBoxColumn.HeaderText = "CustName";
             this.custNameDataGridViewTextBoxColumn.Name = "custNameDataGridViewTextBoxColumn";
+            this.custNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.custNameDataGridViewTextBoxColumn.Width = 200;
             // 
             // productNameDataGridViewTextBoxColumn
             // 
             this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
             this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
             this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productNameDataGridViewTextBoxColumn.Width = 200;
             // 
             // productQuantityDataGridViewTextBoxColumn
             // 
             this.productQuantityDataGridViewTextBoxColumn.DataPropertyName = "ProductQuantity";
             this.productQuantityDataGridViewTextBoxColumn.HeaderText = "ProductQuantity";
             this.productQuantityDataGridViewTextBoxColumn.Name = "productQuantityDataGridViewTextBoxColumn";
+            this.productQuantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productQuantityDataGridViewTextBoxColumn.Width = 150;
             // 
             // productPriceDataGridViewTextBoxColumn
             // 
             this.productPriceDataGridViewTextBoxColumn.DataPropertyName = "ProductPrice";
             this.productPriceDataGridViewTextBoxColumn.HeaderText = "ProductPrice";
             this.productPriceDataGridViewTextBoxColumn.Name = "productPriceDataGridViewTextBoxColumn";
+            this.productPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productPriceDataGridViewTextBoxColumn.Width = 150;
             // 
             // ordertimeDataGridViewTextBoxColumn
             // 
             this.ordertimeDataGridViewTextBoxColumn.DataPropertyName = "Ordertime";
             this.ordertimeDataGridViewTextBoxColumn.HeaderText = "Ordertime";
             this.ordertimeDataGridViewTextBoxColumn.Name = "ordertimeDataGridViewTextBoxColumn";
+            this.ordertimeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // orderDateDataGridViewTextBoxColumn
             // 
             this.orderDateDataGridViewTextBoxColumn.DataPropertyName = "OrderDate";
             this.orderDateDataGridViewTextBoxColumn.HeaderText = "OrderDate";
             this.orderDateDataGridViewTextBoxColumn.Name = "orderDateDataGridViewTextBoxColumn";
+            this.orderDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // totalqtyDataGridViewTextBoxColumn
             // 
             this.totalqtyDataGridViewTextBoxColumn.DataPropertyName = "Totalqty";
             this.totalqtyDataGridViewTextBoxColumn.HeaderText = "Totalqty";
             this.totalqtyDataGridViewTextBoxColumn.Name = "totalqtyDataGridViewTextBoxColumn";
+            this.totalqtyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalqtyDataGridViewTextBoxColumn.Width = 5;
             // 
             // totalAmountDataGridViewTextBoxColumn
             // 
             this.totalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount";
             this.totalAmountDataGridViewTextBoxColumn.HeaderText = "TotalAmount";
             this.totalAmountDataGridViewTextBoxColumn.Name = "totalAmountDataGridViewTextBoxColumn";
+            this.totalAmountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalAmountDataGridViewTextBoxColumn.Width = 5;
             // 
             // ordersDetailsBindingSource
             // 
@@ -176,11 +191,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(871, 357);
+            this.ClientSize = new System.Drawing.Size(1156, 357);
             this.Controls.Add(this.dgv1);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnLoad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "BillForm";
             this.Text = "BillForm";
             this.Load += new System.EventHandler(this.BillForm_Load);

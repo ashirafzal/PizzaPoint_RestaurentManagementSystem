@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -18,6 +13,7 @@ namespace PizzaPoint
             InitializeComponent();
             fillGrid();
             dgv_CashierRegister();
+            
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -38,7 +34,7 @@ namespace PizzaPoint
             con.Open();
             SqlCommand command;
             SqlDataAdapter da;
-            string selectQuery = "select * from Employee order by employeeID DESC";
+            string selectQuery = "select * from Employee order by EmpID DESC";
             command = new SqlCommand(selectQuery, con);
             da = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
@@ -64,10 +60,12 @@ namespace PizzaPoint
             //This Part of Code is for the styling of the Grid Columns
             dgv1.ColumnHeadersDefaultCellStyle.BackColor = Color.Maroon;
             dgv1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgv1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10F, FontStyle.Bold);
+            dgv1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10.5F, FontStyle.Bold);
 
             //This Part of Code is for the styling of the Visaul Style
             dgv1.EnableHeadersVisualStyles = false;
+            dgv1.DefaultCellStyle.Padding = new Padding(5, 2, 0, 2);
+            dgv1.RowTemplate.Height = 35;
 
             // This Part of Code is for the styling of the Grid Border
             this.dgv1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -80,12 +78,24 @@ namespace PizzaPoint
             this.dgv1.RowHeadersDefaultCellStyle.BackColor = Color.Black;
 
             //This Part of Code is for the styling of the Grid Rows
-            dgv1.RowsDefaultCellStyle.Font = new Font("Arial", 8F, FontStyle.Regular);
+            dgv1.RowsDefaultCellStyle.Font = new Font("Arial", 9.2F, FontStyle.Regular);
             dgv1.RowsDefaultCellStyle.ForeColor = Color.White;
             dgv1.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
             dgv1.RowsDefaultCellStyle.BackColor = Color.Black;
             dgv1.AlternatingRowsDefaultCellStyle.BackColor = Color.Maroon;
 
+        }
+
+        private void EmployeeRecord_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EmployeeRecord_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Administrator admin = new Administrator();
+            this.Hide();
+            admin.Show();
         }
     }
 }

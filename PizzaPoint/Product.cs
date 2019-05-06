@@ -88,5 +88,11 @@ namespace PizzaPoint
             this.Close();
             cr.Show();
         }
+
+        private void Product_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CashierRegister cr = new CashierRegister();
+            cr.Show();
+        }
     }
 }

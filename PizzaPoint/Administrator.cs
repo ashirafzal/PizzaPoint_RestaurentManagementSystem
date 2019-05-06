@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -68,20 +63,16 @@ namespace PizzaPoint
         }
 
         private void btnCreateEmp_Click(object sender, EventArgs e)
-        {         
+        {
             try
             {
-                int b, d, e1;
-
+                int b;
                 SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9CBGPDG\ASHIRAFZAL;Initial Catalog=PizzaPoint;Integrated Security=True");
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-
-                b = int.Parse(empLoginID.Text);
-                d = int.Parse(empNum.Text);
-                e1 = Convert.ToInt32(empIdentity.Text);
-                cmd.CommandText = "insert into Employee values ('" + empName.Text + "','" + b + "','" + empPass.Text + "','" + empPosition.Text + "','" + empEducation.Text + "','" + d + "','" + empAddress.Text + "','" + empEmail.Text + "','" + e1 + "','" + empDegree.Text + "')";
+                b = Convert.ToInt32(empLoginID.Text);
+                cmd.CommandText = "insert into Employee values ('" + empName.Text + "','" + b + "','" + empPass.Text + "','" + empPosition.Text + "','" + empEducation.Text + "','" + empNum.Text + "','" + empAddress.Text + "','" + empEmail.Text + "','" + empIdentity.Text + "','" + empDegree.Text + "')";
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Employee Create Successfully");
                 con.Close();
@@ -126,25 +117,23 @@ namespace PizzaPoint
 
         private void btnUpdateEmp_Click(object sender, EventArgs e)
         {
-            int b, d, e1;
-
-            b = Convert.ToInt32(empLoginID.Text);
-            d = Convert.ToInt32(empNum.Text);
-            e1 = Convert.ToInt32(empIdentity.Text);
-
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9CBGPDG\ASHIRAFZAL;Initial Catalog=PizzaPoint;Integrated Security=True");
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update Employee set empName = '" + empName.Text + "', empLoginPass = '" + empPass.Text + "', empPosition = '" + empPosition.Text + "', empEducation = '" + empEducation.Text + "', empPhoneNo = '" + d + "', empAddress = '" + empAddress.Text + "', empEmail = '" + empEmail.Text + "', empCNIC = '" + e1 + "', empDegree = '" + empDegree.Text + "' where empLoginID = '" + b + "'  ";
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            MessageBox.Show("Employee Record updated Successfully");
-
             try
             {
-                
+                int b, d, e1;
+
+                b = Convert.ToInt32(empLoginID.Text);
+                //d = Convert.ToInt32(empNum.Text);
+                //e1 = Convert.ToInt32(empIdentity.Text);
+
+                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9CBGPDG\ASHIRAFZAL;Initial Catalog=PizzaPoint;Integrated Security=True");
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update Employee set EmpName = '" + empName.Text + "', EmpPass = '" + empPass.Text + "', EmpPosition = '" + empPosition.Text + "', EmpEducation = '" + empEducation.Text + "', EmpPhone = '" + empNum.Text + "', EmpAddress = '" + empAddress.Text + "', EmpEmail = '" + empEmail.Text + "', EmpCNIC = '" + empIdentity.Text + "', EmpDegree = '" + empDegree.Text + "' where EmpLogin = '" + b + "'  ";
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                MessageBox.Show("Employee Record updated Successfully");
             }
             catch (Exception)
             {
@@ -204,16 +193,32 @@ namespace PizzaPoint
 
         private void btnDeleteEmp_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9CBGPDG\ASHIRAFZAL;Initial Catalog=PizzaPoint;Integrated Security=True");
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            int a1 = Convert.ToInt16(empLoginID.Text);
-            cmd.CommandText = "delete from Employee where empLoginID ='" + a1 + "'";
-            cmd.ExecuteNonQuery();
-            con.Close();
 
-            MessageBox.Show("Employee Deleted Successfully");
+            try
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9CBGPDG\ASHIRAFZAL;Initial Catalog=PizzaPoint;Integrated Security=True");
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                int a1 = Convert.ToInt16(empLoginID.Text);
+                cmd.CommandText = "delete from Employee where EmpID ='" + a1 + "'";
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                MessageBox.Show("Employee Deleted Successfully");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Employee Id is must to Delete Employee Record"+"Please Provide Employee ID for further Operations");
+            }
+          
+        }
+
+        private void Administrator_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CashierRegister cr = new CashierRegister();
+            this.Hide();
+            cr.Show();
         }
     }
 }
