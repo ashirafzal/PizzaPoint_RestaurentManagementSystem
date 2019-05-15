@@ -59,18 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrator.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administrator.Designer.cs">
-      <DependentUpon>Administrator.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AdminRecord.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminRecord.Designer.cs">
-      <DependentUpon>AdminRecord.cs</DependentUpon>
-    </Compile>
     <Compile Include="BillDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,23 +82,17 @@
     <Compile Include="CashierRegister.Designer.cs">
       <DependentUpon>CashierRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeRecord.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EmployeeRecord.Designer.cs">
-      <DependentUpon>EmployeeRecord.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventory.Designer.cs">
-      <DependentUpon>Inventory.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProducts.Designer.cs">
+      <DependentUpon>ManageProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="Order.cs">
       <SubType>Form</SubType>
@@ -142,6 +124,11 @@
     <Compile Include="Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
+    <Compile Include="Products.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Products.xsd</DependentUpon>
+    </Compile>
     <Compile Include="rptOrders.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -162,12 +149,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Administrator.resx">
-      <DependentUpon>Administrator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminRecord.resx">
-      <DependentUpon>AdminRecord.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsersDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsersDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BillForm.resx">
       <DependentUpon>BillForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,14 +169,11 @@
     <EmbeddedResource Include="CashierRegister.resx">
       <DependentUpon>CashierRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeRecord.resx">
-      <DependentUpon>EmployeeRecord.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventory.resx">
-      <DependentUpon>Inventory.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProducts.resx">
+      <DependentUpon>ManageProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
@@ -215,6 +204,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="BillDataSet.xsc">
       <DependentUpon>BillDataSet.xsd</DependentUpon>
     </None>
@@ -249,6 +241,17 @@
     <None Include="PizzaPointDataSet1.xss">
       <DependentUpon>PizzaPointDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="Products.xsc">
+      <DependentUpon>Products.xsd</DependentUpon>
+    </None>
+    <None Include="Products.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Products.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Products.xss">
+      <DependentUpon>Products.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\Bill.datasource" />
     <None Include="Properties\DataSources\BillDetails.datasource" />
     <None Include="Properties\DataSources\EmployeeRecord.datasource" />
@@ -256,6 +259,11 @@
     <None Include="Properties\DataSources\Order.datasource" />
     <None Include="Properties\DataSources\Orders.datasource" />
     <None Include="Properties\DataSources\OrdersDetails.datasource" />
+    <None Include="Properties\DataSources\PizzaPoint.ProductsTableAdapters.ProductsTableAdapter.datasource" />
+    <None Include="Properties\DataSources\PizzaPoint.ProductsTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\PizzaPoint.ProductsTableAdapters.TableAdapterManager.datasource" />
+    <None Include="Properties\DataSources\Product.datasource" />
+    <None Include="Properties\DataSources\Users.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -265,6 +273,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="UsersDataSet.xsc">
+      <DependentUpon>UsersDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UsersDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UsersDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UsersDataSet.xss">
+      <DependentUpon>UsersDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

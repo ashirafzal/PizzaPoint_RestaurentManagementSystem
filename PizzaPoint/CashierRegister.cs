@@ -79,9 +79,6 @@ namespace PizzaPoint
             //this line of code is applying padding to a specific Column of dgv1 which is Product Column
             dgv1.Columns[2].DefaultCellStyle.Padding = new Padding(2, 2, 2,2);
 
-
-            //
-            
         }
 
 
@@ -107,12 +104,14 @@ namespace PizzaPoint
 
         public CashierRegister()
         {
-
             InitializeComponent();
-            fillGrid();
+            //fillGrid();
             this.MinimumSize = new Size(1300, 850);
             this.Resize += new EventHandler(Form2_Resize);
             _lastFormSize = GetFormArea(this.Size);
+            //
+            dgv1.RowTemplate.Height = 200;
+            dgv1.AllowUserToAddRows = false;
         }
 
         private int GetFormArea(Size size)
@@ -243,6 +242,8 @@ namespace PizzaPoint
 
         private void CashierRegister_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'products._Products' table. You can move, or remove it, as needed.
+            this.productsTableAdapter.Fill(this.products._Products);
             dgv_CashierRegister();
             listviewDesign();
         }
@@ -253,8 +254,8 @@ namespace PizzaPoint
             {
                 DataGridViewRow row = this.dgv1.Rows[e.RowIndex];
 
-                comboBox1.Text = row.Cells["ProductName"].Value.ToString();
-                txtItemPrice.Text = row.Cells["ProductPrice"].Value.ToString();
+                comboBox1.Text = row.Cells[0].Value.ToString();
+                txtItemPrice.Text = row.Cells[1].Value.ToString();
                 txtQuantity.Text = "1";
             }
         }
@@ -268,9 +269,9 @@ namespace PizzaPoint
 
         public void btnAdmin_Click(object sender, EventArgs e)
         {
-            Administrator admin = new Administrator();
+            Users users = new Users();
             this.Hide();
-            admin.Show();
+            users.Show();
         }
 
         private void dgv1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -553,8 +554,9 @@ namespace PizzaPoint
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            Inventory inventory = new Inventory();
-            inventory.Show();
+            ManageProducts mp = new ManageProducts();
+            mp.Show();
+            this.Hide();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -592,6 +594,12 @@ namespace PizzaPoint
         private void CashierRegister_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void dgv1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            dgv1.Rows[e.RowIndex].ErrorText = "Concisely describe the error and how to fix it";
+            e.Cancel = true;
         }
     }
 }

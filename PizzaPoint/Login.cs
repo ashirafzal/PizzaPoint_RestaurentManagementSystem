@@ -10,11 +10,11 @@ namespace PizzaPoint
     {
         public Login()
         {
-            Thread t = new Thread(new ThreadStart(StartForm));
-            t.Start();
-            Thread.Sleep(300);
+            //Thread t = new Thread(new ThreadStart(StartForm));
+            //t.Start();
+            //Thread.Sleep(300);
             InitializeComponent();
-            t.Abort();
+            //t.Abort();
         }
 
         public void StartForm()
@@ -24,7 +24,7 @@ namespace PizzaPoint
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -34,30 +34,28 @@ namespace PizzaPoint
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9CBGPDG\ASHIRAFZAL;Initial Catalog=PizzaPoint;Integrated Security=True");
+            con.Open();
             try
             {
-                int a = Convert.ToInt16(txtLoginID.Text);
-                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9CBGPDG\ASHIRAFZAL;Initial Catalog=PizzaPoint;Integrated Security=True");
-                con.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT AdminLoginID,AdminPass from Admin where AdminLoginID = '" + a + "' and AdminPass = '" + txtPass.Text + "'", con);
-                DataTable table = new DataTable();
-                DataTable table2 = new DataTable();
-                adapter.Fill(table);
-                if (table.Rows.Count > 0)
+                if (txtLoginID.Text == "user" || txtPass.Text == "pass")
                 {
-                    MessageBox.Show("Welcome Admin");
                     CashierRegister cr = new CashierRegister();
                     this.Hide();
                     cr.Show();
                 }
+                else if (txtLoginID.Text == string.Empty || txtPass.Text == string.Empty)
+                {
+                    MessageBox.Show("Please Enter Username and Password");
+                }
                 else
                 {
-                    SqlDataAdapter adapter2 = new SqlDataAdapter("SELECT empLoginID,empLoginPass from Employee where empLoginID = '" + a + "' and empLoginPass = '" + txtPass.Text + "'", con);
-                    adapter2.Fill(table2);
-
-                    if (table2.Rows.Count > 0)
+                    int a = Convert.ToInt16(txtLoginID.Text);
+                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT UserLoginID,UserPass from Users where UserLoginID = '" + a + "' and UserPass = '" + txtPass.Text + "'", con);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    if (table.Rows.Count > 0)
                     {
-                        MessageBox.Show("Welcome Employee");
                         CashierRegister cr = new CashierRegister();
                         this.Hide();
                         cr.Show();
@@ -66,13 +64,14 @@ namespace PizzaPoint
                     {
                         MessageBox.Show("Invalid Username or Password");
                     }
-                   
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Please Enter Credentials for Successful Login");
+                MessageBox.Show(this, "Please enter ID in numeric form or use the default username and password for login",
+                    "User Mishandling",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
+            con.Close();
         }
 
         private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)

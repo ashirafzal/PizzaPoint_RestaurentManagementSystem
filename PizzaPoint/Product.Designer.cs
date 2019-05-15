@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnBrowseImage = new System.Windows.Forms.Button();
             this.txtItemPrice2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -131,7 +130,6 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.2766F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.7234F));
-            this.tableLayoutPanel4.Controls.Add(this.button1, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.btnBrowseImage, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.txtItemPrice2, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
@@ -148,23 +146,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(470, 220);
             this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Maroon;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(3, 168);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 49);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "BACK";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnBrowseImage
             // 
@@ -326,6 +307,5 @@
         private System.Windows.Forms.Button btnBrowseImage;
         private System.Windows.Forms.Button btnEnterData;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
     }
 }

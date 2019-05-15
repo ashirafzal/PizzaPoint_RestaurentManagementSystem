@@ -32,7 +32,7 @@ namespace PizzaPoint
 
             List<string> list = new List<string>();
             rptOrders1.SetDataSource(_bill);
-            rptOrders1.SetParameterValue("pBillid", _orders.Billid);
+            //rptOrders1.SetParameterValue("pBillid", _orders.Billid);
             rptOrders1.SetParameterValue("pOrderID", _orders.OrderID);
             rptOrders1.SetParameterValue("pCustID", _orders.CustID);
             rptOrders1.SetParameterValue("pCustName", _orders.CustName);

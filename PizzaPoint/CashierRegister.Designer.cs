@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -80,6 +81,12 @@
             this.HomePanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.dgv1 = new System.Windows.Forms.DataGridView();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.products = new PizzaPoint.Products();
+            this.productsTableAdapter = new PizzaPoint.ProductsTableAdapters.ProductsTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
@@ -96,6 +103,8 @@
             this.HomePanel.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.products)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -163,7 +172,7 @@
             this.btnInventory.Name = "btnInventory";
             this.btnInventory.Size = new System.Drawing.Size(170, 106);
             this.btnInventory.TabIndex = 8;
-            this.btnInventory.Text = "INVENTORY";
+            this.btnInventory.Text = "MANAGE \r\nPRODUCTS";
             this.btnInventory.UseVisualStyleBackColor = false;
             this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
@@ -873,7 +882,7 @@
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(172, 100);
             this.btnAdmin.TabIndex = 6;
-            this.btnAdmin.Text = "ADMIN";
+            this.btnAdmin.Text = "USERS";
             this.btnAdmin.UseVisualStyleBackColor = false;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
@@ -980,9 +989,15 @@
             this.dgv1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgv1.AutoGenerateColumns = false;
+            this.dgv1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv1.BackgroundColor = System.Drawing.Color.Black;
             this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productNameDataGridViewTextBoxColumn,
+            this.productPriceDataGridViewTextBoxColumn,
+            this.productImageDataGridViewImageColumn});
+            this.dgv1.DataSource = this.productsBindingSource;
             this.dgv1.GridColor = System.Drawing.Color.Black;
             this.dgv1.Location = new System.Drawing.Point(3, 3);
             this.dgv1.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
@@ -1000,6 +1015,43 @@
             this.dgv1.TabIndex = 0;
             this.dgv1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellContentClick);
             this.dgv1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellContentDoubleClick);
+            this.dgv1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv1_DataError);
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productPriceDataGridViewTextBoxColumn
+            // 
+            this.productPriceDataGridViewTextBoxColumn.DataPropertyName = "ProductPrice";
+            this.productPriceDataGridViewTextBoxColumn.HeaderText = "Product Price";
+            this.productPriceDataGridViewTextBoxColumn.Name = "productPriceDataGridViewTextBoxColumn";
+            this.productPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productImageDataGridViewImageColumn
+            // 
+            this.productImageDataGridViewImageColumn.DataPropertyName = "ProductImage";
+            this.productImageDataGridViewImageColumn.HeaderText = "Product Image";
+            this.productImageDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.productImageDataGridViewImageColumn.Name = "productImageDataGridViewImageColumn";
+            this.productImageDataGridViewImageColumn.ReadOnly = true;
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "Products";
+            this.productsBindingSource.DataSource = this.products;
+            // 
+            // products
+            // 
+            this.products.DataSetName = "Products";
+            this.products.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productsTableAdapter
+            // 
+            this.productsTableAdapter.ClearBeforeFill = true;
             // 
             // CashierRegister
             // 
@@ -1034,6 +1086,8 @@
             this.HomePanel.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.products)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1092,5 +1146,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private Products products;
+        private System.Windows.Forms.BindingSource productsBindingSource;
+        private ProductsTableAdapters.ProductsTableAdapter productsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn productImageDataGridViewImageColumn;
     }
 }
