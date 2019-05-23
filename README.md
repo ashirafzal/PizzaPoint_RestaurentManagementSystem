@@ -33,3 +33,8 @@
 
 ![CashierRegister](https://user-images.githubusercontent.com/35813537/57741755-19f03500-7673-11e9-9105-f7bef40eabf8.PNG)
 
+![Bill2](https://user-images.githubusercontent.com/35813537/58278531-1afb2380-7d51-11e9-8f5d-b5a599d986ff.PNG)
+
+## PDF View Of Bill Which will be Print by Small Printing Printer
+
+![PDF](https://user-images.githubusercontent.com/35813537/58278537-20586e00-7d51-11e9-8c3c-b30b9b5e59be.PNG)
