@@ -289,6 +289,12 @@ namespace PizzaPoint
                 a = Convert.ToInt16(txtQuantity.Text.ToString());
                 b = Convert.ToDouble(txtItemPrice.Text);
 
+                /*
+                if (productname.Contains(comboBox1.Text))
+                {
+                    MessageBox.Show("Item Present");
+                }else*/
+
                 productname.Add(comboBox1.Text);
                 productquantity.Add(a);
                 productPrice.Add(b);
@@ -505,8 +511,11 @@ namespace PizzaPoint
 
                                 }
 
-                                BillForm b = new BillForm();
-                                b.Show();
+
+                                Bill2 bill2 = new Bill2();
+                                bill2.Show();
+                                //BillForm b = new BillForm();
+                                //b.Show();
 
                                 //MessageBox.Show("Operation Successfull");
                             }

@@ -42,10 +42,19 @@
     <Reference Include="Dapper.Extension, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.Extension.1.0.0.1\lib\net45\Dapper.Extension.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bill2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bill2.Designer.cs">
+      <DependentUpon>Bill2.cs</DependentUpon>
+    </Compile>
     <Compile Include="BillDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -81,6 +96,12 @@
     </Compile>
     <Compile Include="CashierRegister.Designer.cs">
       <DependentUpon>CashierRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -160,6 +181,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UsersDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Bill2.resx">
+      <DependentUpon>Bill2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BillForm.resx">
       <DependentUpon>BillForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +192,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CashierRegister.resx">
       <DependentUpon>CashierRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -255,6 +283,7 @@
     <None Include="Properties\DataSources\Bill.datasource" />
     <None Include="Properties\DataSources\BillDetails.datasource" />
     <None Include="Properties\DataSources\EmployeeRecord.datasource" />
+    <None Include="Properties\DataSources\GetProductList_Result.datasource" />
     <None Include="Properties\DataSources\Inventory.datasource" />
     <None Include="Properties\DataSources\Order.datasource" />
     <None Include="Properties\DataSources\Orders.datasource" />
@@ -292,7 +321,12 @@
     <None Include="Resources\pizzapoint.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Bill\Bill.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

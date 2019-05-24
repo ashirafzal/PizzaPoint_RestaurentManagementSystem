@@ -14,6 +14,7 @@ namespace PizzaPoint
     {
         List<BillDetails> _bill;
         OrdersDetails _orders;
+        BillDataSet bill;
 
         public BillPrint(OrdersDetails orders, List<BillDetails> bill)
         {
@@ -29,10 +30,8 @@ namespace PizzaPoint
 
         public void report()
         {
-
             List<string> list = new List<string>();
             rptOrders1.SetDataSource(_bill);
-            //rptOrders1.SetParameterValue("pBillid", _orders.Billid);
             rptOrders1.SetParameterValue("pOrderID", _orders.OrderID);
             rptOrders1.SetParameterValue("pCustID", _orders.CustID);
             rptOrders1.SetParameterValue("pCustName", _orders.CustName);
