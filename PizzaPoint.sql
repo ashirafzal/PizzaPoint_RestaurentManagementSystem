@@ -1,33 +1,18 @@
 ﻿
 
-								/***********************Created by AshirAfzal Date : 1-May-2019 **********************/
-
+					/***********************Created by AshirAfzal Date : 1-May-2019 **********************/
+					/***********************Edited by AshirAfzal Date : 14-May-2019 **********************/
 
 Create database PizzaPoint
 
-CREATE TABLE [dbo].[Admin] (
-    [AdminID]        INT           IDENTITY (1, 1) NOT NULL,
-    [AdminName]      NVARCHAR (50) NOT NULL,
-    [AdminPost]      NVARCHAR (50) NOT NULL,
-    [AdminEducation] NVARCHAR (50) NOT NULL,
-    [AdminLoginID]   INT           NOT NULL,
-    [AdminPass]      NVARCHAR (50) NOT NULL,
-    PRIMARY KEY CLUSTERED ([AdminID] ASC)
-);
-
-CREATE TABLE [dbo].[Employee] (
-    [employeeID]   INT           IDENTITY (1, 1) NOT NULL,
-    [empName]      NVARCHAR (50) NOT NULL,
-    [empLoginID]   INT           NOT NULL,
-    [empLoginPass] NVARCHAR (50) NOT NULL,
-    [empPosition]  NVARCHAR (50) NULL,
-    [empEducation] NVARCHAR (50) NULL,
-    [empPhoneNo]   NVARCHAR (50) NOT NULL,
-    [empAddress]   NVARCHAR (50) NULL,
-    [empEmail]     NVARCHAR (50) NULL,
-    [empCNIC]      NVARCHAR (50) NULL,
-    [empDegree]    NVARCHAR (50) NULL,
-    PRIMARY KEY CLUSTERED ([employeeID] ASC)
+CREATE TABLE [dbo].[Users] (
+    [UserID]        INT           IDENTITY (1, 1) NOT NULL,
+    [UserName]      NVARCHAR (50) NOT NULL,
+    [UserPost]      NVARCHAR (50) NULL,
+    [UserEducation] NVARCHAR (50) NULL,
+    [UserLoginID]   INT           NOT NULL,
+    [UserPass]      NVARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserID] ASC)
 );
 
 CREATE TABLE [dbo].[Customer] (
