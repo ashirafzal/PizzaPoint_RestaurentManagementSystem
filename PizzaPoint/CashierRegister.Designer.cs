@@ -1,6 +1,6 @@
 ﻿namespace PizzaPoint
 {
-    partial class CashierRegister
+    partial class CashierRegisters
     {
         /// <summary>
         /// Required designer variable.
@@ -49,10 +49,6 @@
             this.btnTwo = new System.Windows.Forms.Button();
             this.btnOne = new System.Windows.Forms.Button();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.btnRemove = new System.Windows.Forms.Button();
@@ -70,6 +66,10 @@
             this.MainTotalResult = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.qtyResult = new System.Windows.Forms.Label();
+            this.dgv2 = new System.Windows.Forms.DataGridView();
+            this.Pro_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSales = new System.Windows.Forms.Button();
             this.btnBill = new System.Windows.Forms.Button();
@@ -98,6 +98,7 @@
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv2)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.HomePanel.SuspendLayout();
@@ -467,9 +468,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel9.ColumnCount = 1;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Controls.Add(this.listView1, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel13, 0, 2);
+            this.tableLayoutPanel9.Controls.Add(this.dgv2, 0, 1);
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
@@ -480,44 +481,6 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(472, 730);
             this.tableLayoutPanel9.TabIndex = 1;
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.ForeColor = System.Drawing.Color.White;
-            this.listView1.Location = new System.Drawing.Point(3, 220);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(466, 362);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listView1_DrawColumnHeader);
-            this.listView1.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listView1_DrawItem);
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
-            this.listView1.MouseLeave += new System.EventHandler(this.listView1_MouseLeave);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Item Name";
-            this.columnHeader1.Width = 170;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Item Quantity";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 124;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Item Price";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 168;
             // 
             // tableLayoutPanel10
             // 
@@ -806,6 +769,47 @@
             this.qtyResult.Text = "0";
             this.qtyResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dgv2
+            // 
+            this.dgv2.AllowUserToDeleteRows = false;
+            this.dgv2.AllowUserToResizeColumns = false;
+            this.dgv2.AllowUserToResizeRows = false;
+            this.dgv2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv2.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Pro_Name,
+            this.Qty,
+            this.Price});
+            this.dgv2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv2.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgv2.Location = new System.Drawing.Point(3, 220);
+            this.dgv2.Name = "dgv2";
+            this.dgv2.RowHeadersVisible = false;
+            this.dgv2.RowHeadersWidth = 40;
+            this.dgv2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv2.ShowCellErrors = false;
+            this.dgv2.ShowCellToolTips = false;
+            this.dgv2.ShowEditingIcon = false;
+            this.dgv2.ShowRowErrors = false;
+            this.dgv2.Size = new System.Drawing.Size(466, 362);
+            this.dgv2.TabIndex = 3;
+            // 
+            // Pro_Name
+            // 
+            this.Pro_Name.HeaderText = "Name";
+            this.Pro_Name.Name = "Pro_Name";
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1053,7 +1057,7 @@
             // 
             this.productsTableAdapter.ClearBeforeFill = true;
             // 
-            // CashierRegister
+            // CashierRegisters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1063,8 +1067,8 @@
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "CashierRegister";
-            this.Text = "CashierRegister";
+            this.Name = "CashierRegisters";
+            this.Text = "Cashier Register";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CashierRegister_FormClosing);
             this.Load += new System.EventHandler(this.CashierRegister_Load);
@@ -1081,6 +1085,7 @@
             this.tableLayoutPanel12.PerformLayout();
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv2)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.HomePanel.ResumeLayout(false);
@@ -1142,15 +1147,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label qtyResult;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private Products products;
         private System.Windows.Forms.BindingSource productsBindingSource;
         private ProductsTableAdapters.ProductsTableAdapter productsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn productImageDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridView dgv2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
     }
 }

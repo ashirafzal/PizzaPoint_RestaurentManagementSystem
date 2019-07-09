@@ -76,7 +76,7 @@ namespace PizzaPoint
 
         private void ManageProducts_FormClosed(object sender, FormClosedEventArgs e)
         {
-            CashierRegister cr = new CashierRegister();
+            CashierRegisters cr = new CashierRegisters();
             cr.Show();
             this.Hide();
         }
@@ -156,19 +156,27 @@ namespace PizzaPoint
 
         private void btnDelete_Click_1(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9CBGPDG\ASHIRAFZAL;Initial Catalog=PizzaPoint;Integrated Security=True");
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            int a1 = Convert.ToInt16(ProductID.Text);
-            cmd.CommandText = "delete from Products where ProductId ='" + a1 + "'";
-            cmd.ExecuteNonQuery();
-            con.Close();
-            ProductID.Text = string.Empty;
-            ProductName.Text = string.Empty;
-            ProductPrice.Text = string.Empty;
-            MessageBox.Show("Product Deleted Successfully");
-            this.productsTableAdapter.Fill(this.products._Products);
+            try
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9CBGPDG\ASHIRAFZAL;Initial Catalog=PizzaPoint;Integrated Security=True");
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                int a1 = Convert.ToInt16(ProductID.Text);
+                cmd.CommandText = "delete from Products where ProductId ='" + a1 + "'";
+                cmd.ExecuteNonQuery();
+                con.Close();
+                ProductID.Text = string.Empty;
+                ProductName.Text = string.Empty;
+                ProductPrice.Text = string.Empty;
+                MessageBox.Show("Product Deleted Successfully");
+                this.productsTableAdapter.Fill(this.products._Products);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("ProductID can't be empty");
+            }
+           
         }
     }
 }

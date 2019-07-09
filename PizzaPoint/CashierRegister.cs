@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PizzaPoint
 {
-    public partial class CashierRegister : Form
+    public partial class CashierRegisters : Form
     {
 
         // For Resizing Of the Form
@@ -81,6 +81,50 @@ namespace PizzaPoint
 
         }
 
+        public void dgv_CashierRegister2()
+        {
+            dgv2.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            
+            //This Part of Code is for the styling of the Grid Padding
+            Padding newPadding = new Padding(10, 8, 0, 8);
+            this.dgv2.ColumnHeadersDefaultCellStyle.Padding = newPadding;
+
+            // For Changing Grid Color
+            this.dgv2.GridColor = Color.Maroon;
+
+            //This Part of Code is for the styling of the Grid Columns
+            dgv2.ColumnHeadersDefaultCellStyle.BackColor = Color.Maroon;
+            dgv2.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv2.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10F, FontStyle.Bold);
+
+            //This Part of Code is for the styling of the Visaul Style
+            dgv2.EnableHeadersVisualStyles = false;
+
+            // This Part of Code is for the styling of the Grid Border
+            this.dgv2.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            this.dgv2.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            this.dgv2.CellBorderStyle = DataGridViewCellBorderStyle.RaisedVertical;
+
+
+            //This Part of Code is for the styling of the Grid RowsHeader which is on the left side
+            this.dgv2.RowHeadersDefaultCellStyle.ForeColor = Color.White;
+            this.dgv2.RowHeadersDefaultCellStyle.BackColor = Color.Black;
+
+            //This Part of Code is for the styling of the Grid Rows
+            dgv2.RowsDefaultCellStyle.Font = new Font("Arial", 12F, FontStyle.Regular);
+            dgv2.RowsDefaultCellStyle.ForeColor = Color.White;
+            dgv2.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
+            dgv2.RowsDefaultCellStyle.BackColor = Color.Black;
+            dgv2.AlternatingRowsDefaultCellStyle.BackColor = Color.Maroon;
+
+            //this Line of Code made the dgv1 Text Middle Center
+            dgv2.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            //this line of code is applying padding to a specific Column of dgv1 which is Product Column
+            dgv2.Columns[2].DefaultCellStyle.Padding = new Padding(2, 2, 2, 2);
+
+        }
+
 
         // For filling the Datagridview on formload
         public void fillGrid()
@@ -102,7 +146,7 @@ namespace PizzaPoint
             con.Close();
         }
 
-        public CashierRegister()
+        public CashierRegisters()
         {
             InitializeComponent();
             //fillGrid();
@@ -111,7 +155,9 @@ namespace PizzaPoint
             _lastFormSize = GetFormArea(this.Size);
             //
             dgv1.RowTemplate.Height = 200;
+            dgv2.RowTemplate.Height = 30;
             dgv1.AllowUserToAddRows = false;
+            dgv2.AllowUserToAddRows = false; ;
         }
 
         private int GetFormArea(Size size)
@@ -245,7 +291,8 @@ namespace PizzaPoint
             // TODO: This line of code loads data into the 'products._Products' table. You can move, or remove it, as needed.
             this.productsTableAdapter.Fill(this.products._Products);
             dgv_CashierRegister();
-            listviewDesign();
+            dgv_CashierRegister2();
+            //listviewDesign();
         }
 
         private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -283,27 +330,21 @@ namespace PizzaPoint
 
         private void btnEnterData_Click(object sender, EventArgs e)
         {
-            try
+            /*try
             {
                 double a; double b;
                 a = Convert.ToInt16(txtQuantity.Text.ToString());
                 b = Convert.ToDouble(txtItemPrice.Text);
 
-                /*
-                if (productname.Contains(comboBox1.Text))
-                {
-                    MessageBox.Show("Item Present");
-                }else*/
-
                 productname.Add(comboBox1.Text);
                 productquantity.Add(a);
                 productPrice.Add(b);
 
-                double c = a * b;
+                double c = a * b;*/
 
-                if (string.IsNullOrEmpty(comboBox1.Text) || string.IsNullOrEmpty(txtQuantity.Text) || string.IsNullOrEmpty(txtItemPrice.Text))
- 
-                return;
+            /*if (string.IsNullOrEmpty(comboBox1.Text) || string.IsNullOrEmpty(txtQuantity.Text) || string.IsNullOrEmpty(txtItemPrice.Text))
+            return;*/
+            /*
                 ListViewItem item = new ListViewItem(comboBox1.Text);
                 item.SubItems.Add(txtQuantity.Text);
                 item.SubItems.Add(c.ToString());
@@ -325,12 +366,89 @@ namespace PizzaPoint
                 qtyResult.Text = Convert.ToString(gQty);
                 MainTotalResult.Text = Convert.ToString(gtotal);
 
-                //qtyResult.Text = (productquantity.Sum(x => x)).ToString();
-                //MainTotalResult.Text = (productPrice.Sum(x => x)).ToString();
+            //qtyResult.Text = (productquantity.Sum(x => x)).ToString();
+            //MainTotalResult.Text = (productPrice.Sum(x => x)).ToString();
+    }
+        catch (Exception)
+        {
+
+            if (txtQuantity.TextLength < 0 || txtItemPrice.TextLength < 0 || string.IsNullOrEmpty(comboBox1.Text))
+            {
+                MessageBox.Show("Fields can't be Empty");
+            }
+
+            else if (string.IsNullOrEmpty(comboBox1.Text))
+            {
+                MessageBox.Show("Choose item name");
+            }
+
+            else if (txtQuantity.Text.Length == 0)
+            {
+                //a = 1;
+                MessageBox.Show("Quantity cant be Zero");
+            }
+
+            else if (txtItemPrice.Text.Length == 0)
+            {
+                MessageBox.Show("Enter price for item");
+            }
+
         }
+
+        foreach (ListViewItem item in listView1.Items)
+        {
+            item.BackColor = item.Index % 2 == 0 ? Color.Maroon : Color.Black;
+        }*/
+            try
+            {
+                bool Found = false;
+                dgv2.AllowUserToAddRows = true;
+                if (dgv2.Rows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in dgv2.Rows)
+                    {
+                        if (Convert.ToString(row.Cells[0].Value) == comboBox1.Text)
+                        {
+                            row.Cells[1].Value = Convert.ToString(Convert.ToInt32(txtQuantity.Text) + Convert.ToInt32(row.Cells[1].Value));
+                            row.Cells[2].Value = Convert.ToString(Convert.ToInt32(txtItemPrice.Text) * Convert.ToInt32(row.Cells[1].Value));
+                            //row.Cells[2].Value = Convert.ToString(Convert.ToInt32(txtItemPrice.Text) + Convert.ToInt32(row.Cells[2].Value));
+                            Found = true;
+
+                            int sum = 0;
+                            int sum2 = 0;
+                            for (int i = 0; i < dgv2.Rows.Count; ++i)
+                            {
+                                sum += Convert.ToInt32(dgv2.Rows[i].Cells[1].Value);
+                                sum2 += Convert.ToInt32(dgv2.Rows[i].Cells[2].Value);
+                            }
+                            qtyResult.Text = sum.ToString();
+                            MainTotalResult.Text = sum2.ToString();
+                        }
+                        dgv2.AllowUserToAddRows = false;
+                    }
+                    if (!Found)
+                    {
+                        int a = Convert.ToInt32(txtQuantity.Text);
+                        int b = Convert.ToInt32(txtItemPrice.Text);
+                        int c = a * b;
+
+                        dgv2.Rows.Add(comboBox1.Text, a, c, 1);
+                        //dgv2.Rows.Add(comboBox1.Text, txtQuantity.Text, txtItemPrice.Text, 1);
+
+                        int sum = 0;
+                        int sum2 = 0;
+                        for (int i = 0; i < dgv2.Rows.Count; ++i)
+                        {
+                            sum += Convert.ToInt32(dgv2.Rows[i].Cells[1].Value);
+                            sum2 += Convert.ToInt32(dgv2.Rows[i].Cells[2].Value);
+                        }
+                        qtyResult.Text = sum.ToString();
+                        MainTotalResult.Text = sum2.ToString();
+                    }
+                }
+            }
             catch (Exception)
             {
-
                 if (txtQuantity.TextLength < 0 || txtItemPrice.TextLength < 0 || string.IsNullOrEmpty(comboBox1.Text))
                 {
                     MessageBox.Show("Fields can't be Empty");
@@ -343,7 +461,6 @@ namespace PizzaPoint
 
                 else if (txtQuantity.Text.Length == 0)
                 {
-                    //a = 1;
                     MessageBox.Show("Quantity cant be Zero");
                 }
 
@@ -351,14 +468,7 @@ namespace PizzaPoint
                 {
                     MessageBox.Show("Enter price for item");
                 }
-
             }
-
-            foreach (ListViewItem item in listView1.Items)
-            {
-                item.BackColor = item.Index % 2 == 0 ? Color.Maroon : Color.Black;
-            }
-
 
         }
 
@@ -366,21 +476,43 @@ namespace PizzaPoint
         {
             try
             {
+                foreach (DataGridViewRow row in dgv2.SelectedRows)
+                {
+                    dgv2.Rows.RemoveAt(row.Index);
+                }
+
+                int sum = 0;
+                int sum2 = 0;
+                for (int i = 0; i < dgv2.Rows.Count; ++i)
+                {
+                    sum += Convert.ToInt32(dgv2.Rows[i].Cells[1].Value);
+                    sum2 += Convert.ToInt32(dgv2.Rows[i].Cells[2].Value);
+                }
+                qtyResult.Text = sum.ToString();
+                MainTotalResult.Text = sum2.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot remove unselected or empty row");
+            }
+            /*
+            try
+            {
                 if (listView1.Items.Count > 0)
                 {
 
-                    /* int quantity2 = Int32.Parse(listView1.SelectedItems[0].SubItems[1].Text);
-                     double price2 = double.Parse(listView1.SelectedItems[0].SubItems[2].Text.ToString()); ;
+                    // int quantity2 = Int32.Parse(listView1.SelectedItems[0].SubItems[1].Text);
+                    //double price2 = double.Parse(listView1.SelectedItems[0].SubItems[2].Text.ToString()); ;
 
                      //comboBox1.Text = "";
-                     txtQuantity.Text = quantity2.ToString();
-                     txtItemPrice.Text = price2.ToString();*/
+                     //txtQuantity.Text = quantity2.ToString();
+                     //txtItemPrice.Text = price2.ToString();
 
-                    listView1.Items.Remove(listView1.SelectedItems[0]);
+                    //listView1.Items.Remove(listView1.SelectedItems[0]);
                    
-                    /* int a; double b;
-                     a = Convert.ToInt16(txtQuantity.Text.ToString());
-                     b = Convert.ToDouble(txtItemPrice.Text);*/
+                    // int a; double b;
+                    // a = Convert.ToInt16(txtQuantity.Text.ToString());
+                    // b = Convert.ToDouble(txtItemPrice.Text);
 
                     decimal newqty = 0;
                     for (int i = 0; i < listView1.Items.Count; i++)
@@ -413,7 +545,7 @@ namespace PizzaPoint
             foreach (ListViewItem item in listView1.Items)
             {
                 item.BackColor = item.Index % 2 == 0 ? Color.Maroon : Color.Black;
-            }
+            }*/
 
         }
 
@@ -422,7 +554,9 @@ namespace PizzaPoint
             comboBox1.Text = "";
             txtItemPrice.Text = "";
             txtQuantity.Text = "";
-            listView1.Items.Clear();
+            //listView1.Items.Clear();
+            dgv2.Rows.Clear();
+            dgv2.Refresh();
             MainTotalResult.Text = "0";
             qtyResult.Text = "0";
             productquantity.Clear();
@@ -495,7 +629,7 @@ namespace PizzaPoint
                                 cmd7.ExecuteNonQuery();
 
                                 SqlCommand cmd6;
-                                for (int i = 0; i < listView1.Items.Count; i++)
+                                /*for (int i = 0; i < listView1.Items.Count; i++)
                                 {
                                     itemname = Convert.ToString(listView1.Items[i].SubItems[0].Text).ToString();
                                     itemqty = Convert.ToString(listView1.Items[i].SubItems[1].Text);
@@ -509,8 +643,23 @@ namespace PizzaPoint
                                     //cmd6 = new SqlCommand("insert into Bill values ('" + CUSTID + "','" + ORDERID + "','" + CUSTNAME + "','" + ProductName + "','" + productquantity + "','" + productPrice + "','" + ORDERTIME + "','" + ORDERDATE + "','" + totalqty + "','" + billtotal  + "')", con, tran);
                                     cmd6.ExecuteNonQuery();
 
-                                }
+                                }*/
 
+                                for (int i = 0; i < dgv2.Rows.Count; i++)
+                                {
+                                    itemname = Convert.ToString(dgv2.Rows[i].Cells[0].Value);
+                                    itemqty = Convert.ToString(dgv2.Rows[i].Cells[1].Value);
+                                    itemprice = Convert.ToString(dgv2.Rows[i].Cells[2].Value);
+
+                                    //MessageBox.Show(""+itemname+""+itemprice+""+itemqty);
+                                    //comboBox1.Text = itemname;
+                                    //txtQuantity.Text = itemqty;
+                                    //txtItemPrice.Text = itemprice;
+                                    cmd6 = new SqlCommand("insert into Bill values ('" + CUSTID + "','" + ORDERID + "','" + CUSTNAME + "','" + itemname.ToString() + "','" + itemqty.ToString() + "','" + itemprice.ToString() + "','" + ORDERTIME + "','" + ORDERDATE + "','" + totalqty.ToString() + "','" + billtotal.ToString() + "')", con, tran);
+                                    //cmd6 = new SqlCommand("insert into Bill values ('" + CUSTID + "','" + ORDERID + "','" + CUSTNAME + "','" + ProductName + "','" + productquantity + "','" + productPrice + "','" + ORDERTIME + "','" + ORDERDATE + "','" + totalqty + "','" + billtotal  + "')", con, tran);
+                                    cmd6.ExecuteNonQuery();
+
+                                }
 
                                 Bill2 bill2 = new Bill2();
                                 bill2.Show();
@@ -575,8 +724,8 @@ namespace PizzaPoint
 
         public void listviewDesign()
         {
-            listView1.BackColor = Color.Black;
-            listView1.ForeColor = Color.White;
+            //listView1.BackColor = Color.Black;
+            //listView1.ForeColor = Color.White;
         }
 
         private void listView1_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)

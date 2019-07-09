@@ -61,13 +61,10 @@ namespace PizzaPoint
                 string sqlQuery = "insert into Products(ProductName,ProductPrice,ProductImage) values ('" + txtItemName.Text + "','" + b + "',@images)";
                 cmd = new SqlCommand(sqlQuery, con);
                 cmd.Parameters.Add(new SqlParameter("@images", images));
-                int N = cmd.ExecuteNonQuery();
+                //int N = cmd.ExecuteNonQuery();
                 cmd.ExecuteNonQuery();
                 con.Close();
-
-                this.Hide();
-                CashierRegister cr = new CashierRegister();
-                cr.Show();
+                MessageBox.Show("Operation Succesfull");
             }
             catch (Exception)
             {
@@ -82,16 +79,14 @@ namespace PizzaPoint
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /*private void button1_Click(object sender, EventArgs e)
         {
-            CashierRegister cr = new CashierRegister();
-            this.Hide();
-            cr.Show();
-        }
+           
+        }*/
 
         private void Product_FormClosed(object sender, FormClosedEventArgs e)
         {
-            CashierRegister cr = new CashierRegister();
+            CashierRegisters cr = new CashierRegisters();
             this.Hide();
             cr.Show();
         }

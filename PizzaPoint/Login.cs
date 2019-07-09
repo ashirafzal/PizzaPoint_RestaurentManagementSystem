@@ -40,7 +40,7 @@ namespace PizzaPoint
             {
                 if (txtLoginID.Text == "user" || txtPass.Text == "pass")
                 {
-                    CashierRegister cr = new CashierRegister();
+                    CashierRegisters cr = new CashierRegisters();
                     this.Hide();
                     cr.Show();
                 }
@@ -56,7 +56,7 @@ namespace PizzaPoint
                     adapter.Fill(table);
                     if (table.Rows.Count > 0)
                     {
-                        CashierRegister cr = new CashierRegister();
+                        CashierRegisters cr = new CashierRegisters();
                         this.Hide();
                         cr.Show();
                     }

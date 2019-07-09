@@ -23,6 +23,7 @@ namespace PizzaPoint
             // TODO: This line of code loads data into the 'usersDataSet.Users' table. You can move, or remove it, as needed.
             this.usersTableAdapter.Fill(this.usersDataSet.Users);
             dgv_CashierRegister();
+            dgv1.AllowUserToAddRows = false;
         }
 
         public void dgv_CashierRegister()
@@ -147,7 +148,7 @@ namespace PizzaPoint
 
         private void Users_FormClosed(object sender, FormClosedEventArgs e)
         {
-            CashierRegister cr = new CashierRegister();
+            CashierRegisters cr = new CashierRegisters();
             this.Hide();
             cr.Show();
         }

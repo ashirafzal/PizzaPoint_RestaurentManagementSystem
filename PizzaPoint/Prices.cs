@@ -28,7 +28,7 @@ namespace PizzaPoint
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-            CashierRegister cr = new CashierRegister();
+            CashierRegisters cr = new CashierRegisters();
             cr.Show();
         }
 
@@ -103,7 +103,7 @@ namespace PizzaPoint
 
         private void Prices_FormClosed(object sender, FormClosedEventArgs e)
         {
-            CashierRegister cr = new CashierRegister();
+            CashierRegisters cr = new CashierRegisters();
             cr.Show();
         }
 
