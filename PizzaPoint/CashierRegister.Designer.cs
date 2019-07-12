@@ -782,6 +782,7 @@
             this.Qty,
             this.Price});
             this.dgv2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv2.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgv2.Location = new System.Drawing.Point(3, 220);
             this.dgv2.Name = "dgv2";
